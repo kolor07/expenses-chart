@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+
+@softRed: hsl(10, 79%, 65%);
+@Cyan: hsl(186, 34%, 60%);
+
+@darkBrown: hsl(25, 47%, 15%) ;
+@mediumBrown: hsl(28, 10%, 53%) ;
+@cream: hsl(27, 66%, 92%) ;
+@veryPaleOrange: hsl(33, 100%, 98%);
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    box-sizing: border-box;
+}
+ol,
+ul {
+    list-style: none;
+}
+
+body{
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+.container{
+    background-color:@cream;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .wrapper{
+    padding : 100px 20px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-flow: column nowrap;
+
+    .header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 100px;
+        border-radius: 12px;
+        background-color: @softRed;
+
+        .header__balance{
+            padding : 10px 20px;
+            span{
+                display: block;
+                color:@veryPaleOrange;
+                padding : 3px 0;
+            }
+            .header__balance__text{
+                font-size: 14px;
+                
+            }
+            .header__balance__price{
+                font-size: 24px;
+                font-weight: 700;
+            }
+        };
+
+        .header__circle{
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: center;
+            padding : 0 50px;
+            position: relative;
+            & > div {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                position: absolute;
+            }
+
+            .circle__black{
+                background-color:@darkBrown;
+            }
+
+            .circle__white{
+                border: 2px solid  @veryPaleOrange;
+                margin-right: 50%;
+            }
+        }
+    }
+    .body{
+        width: 100%;
+        min-height: auto;
+        border-radius: 12px;
+        margin: 20px 0;
+        background-color: @veryPaleOrange;
+
+        h1{
+            padding : 30px 20px;
+            font-size: 23px;
+        }
+
+        .body__chart{
+            display: flex;
+            height: 50vh;
+            max-height: 250px;
+            justify-content: space-evenly;
+            align-items: stretch;
+            // column-gap: 10px;
+            padding : 20px 15px;
+            .chart__item {
+                flex : 1;
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                justify-content: flex-end;
+                // align-content: flex-end;
+                width: 55px;
+
+
+                .chart__bar_price{
+                    width: 100%;
+                    visibility:hidden;
+                    border: 1px solid olivedrab;
+                    span {
+                            display: block;
+                            // color: @veryPaleOrange;
+                            border-radius: 3px;
+                            height: 100%;
+                            font-size: 11px;
+                            font-weight: 300;
+                            text-align: center;
+                            line-height: 24px;
+                            font-weight: 600;
+                        }
+
+                        &:has(+ div:hover)
+                        {
+                            visibility: visible;
+                        }
+                }
+               .chart__bar{
+                    background-color: @softRed;
+                    border-radius: 3px;
+                    width: 80%;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-bottom: 10px;
+                    margin-top: 10px;
+                    cursor: pointer;
+                   
+                    &:hover ~ .chart__bar_price {
+                        background-color: hotpink;
+                    }
+               }
+
+                .chart__bar_wed {
+                    background-color: @Cyan;
+                }
+
+                .chart__bar_text{
+                    background-color: transparent;
+                    font-size: 12px;
+                    display: flex;
+                    flex-direction :row;
+                    justify-content: center;                   
+                    align-items: flex-end;
+                    span{
+                        display: block;
+                        font-weight: 300;
+                    }
+                }
+            }
+
+          
+        }
+        .slash{
+            width: 90%;
+            border : 1px solid #eee;
+            margin: auto;
+        }
+        .chart__footer {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-items: flex-end;
+            height: 100px;
+            width: 100%;
+            padding: 20px 15px;
+
+            .chart__footer_price{
+                span{
+                    display: block;
+                    font-size: 14px;
+                    font-weight: 300;
+                }
+
+                & span:last-child{
+                    font-size: 30px;
+                    font-weight: 600;
+                }
+            }
+
+            .chart__footer_percent{
+                span{
+                    display: block;
+                    font-size: 14px;
+                    font-weight: 300;
+                    text-align: end;
+                }
+                & span:first-child{
+                    margin-left: auto;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
+}
+}
+@media all and (min-width: 768px){
+    .wrapper {
+        max-width: 500px;
+
+    }
+}
